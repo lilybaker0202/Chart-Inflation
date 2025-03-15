@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="chart_inflation">
+    <header class="crypto-header">
+        <h1>Chart Inflation</h1>
+        <p>Analyze inflation trends with interactive calculations and historical insights!</p>
+        <div class="input-group">
+            <div class="input-item">
+                <label for="mode">Mode</label>
+                <select id="mode">
+                    <option value="1">Future to Past</option>
+                    <option value="2">Past to Future</option>
+                </select>
+            </div>
+            <div class="input-item">
+                <label for="start_currency">Start Currency</label>
+                <select id="start_currency">
+                    {% for currency in currencies %}
+                    <option value="{{ currency }}">{{ currency }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="input-item">
+                <label for="target_currency">Target Currency</label>
+                <select id="target_currency">
+                    {% for currency in currencies %}
+                    <option value="{{ currency }}">{{ currency }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="input-item">
+                <label for="start_year">Start Year (1980-2024)</label>
+                <input type="number" id="start_year" min="1980" max="2024">
+            </div>
+            <div class="input-item">
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" step="0.01">
+            </div>
+            <div class="input-item">
+                <label for="target_year">Target Year (1980-2024)</label>
+                <input type="number" id="target_year" min="1980" max="2024">
+            </div>
+        </div>
+        <div class="button-group">
+            <button onclick="calculate()" class="btn btn-primary">Calculate</button>
+            <button onclick="reset()" class="btn btn-secondary">Reset</button>
+            <button onclick="saveComparison()" class="btn btn-secondary">Save Comparison</button>
+            <button onclick="clearComparison()" class="btn btn-secondary">Clear Comparison</button>
+        </div>
+        <section class="result-section">
+            <p id="start_result"></p>
+            <p id="target_result"></p>
+        </section>
+        <section class="comparison-section" id="comparison_section" style="display: none;">
+            <h3>Comparison Result</h3>
+            <p id="comparison_start_result"></p>
+            <p id="comparison_target_result"></p>
+        </section>
+        <section class="sidebar">
+            <div class="historical-event">
+                <h3>Did You Know?</h3>
+                <p id="historical-event">{{ initial_event.event }}</p>
+                <button onclick="switchEvent()" class="btn btn-secondary">Next Fact</button>
+            </div>
+            <div class="share-section" id="share_section" style="display: none;">
+                <h3>Share Your Result</h3>
+                <div class="button-group">
+                    <button onclick="shareOnFacebook()" class="btn btn-primary">Facebook</button>
+                    <button onclick="shareOnX()" class="btn btn-primary">X</button>
+                </div>
+                <input type="text" id="share_url" readonly>
+            </div>
+        </section>
+    </header>
+    <section class="charts">
+        <div class="chart-controls">
+            <div class="button-group">
+                <button class="ticker-btn" data-ticker="percentage_change">Percentage Change</button>
+                <button class="ticker-btn" data-ticker="value_comparison">Value Comparison</button>
+                <button class="ticker-btn" data-ticker="exchange_rate">Exchange Rate History</button>
+                <button class="ticker-btn" data-ticker="cumulative_inflation">Cumulative Inflation</button>
+                <button class="ticker-btn" data-ticker="value_change">Value Change Over Time</button>
+                <button class="ticker-btn" data-ticker="yearly_inflation">Yearly Inflation Rates</button>
+                <button class="ticker-btn" data-ticker="show_all">Show All</button>
+            </div>
+            <h3 id="chart-title">Inflation Trends</h3>
+        </div>
+        <div class="chart-container">
+            <canvas id="inflationChart"></canvas>
+        </div>
+    </section>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+{% endblock %}

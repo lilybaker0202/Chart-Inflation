@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inflation Tools</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <div class="logo">Inflation Tools</div>
+        <ul class="nav-links">
+            <li><a href="/" {% if current_path == '/' %}class="active"{% endif %}>Home</a></li>
+            <li><a href="/chart_inflation" {% if current_path == '/chart_inflation' %}class="active"{% endif %}>Chart Inflation</a></li>
+            <li><a href="/economic_index" {% if current_path == '/economic_index' %}class="active"{% endif %}>Economic Index</a></li>
+            <li><a href="/crypto_mode" {% if current_path == '/crypto_mode' %}class="active"{% endif %}>Crypto Mode</a></li>
+            <li><a href="/donation" {% if current_path == '/donation' %}class="active"{% endif %}>Donation</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
+{% block scripts %}{% endblock %}
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9209f5b8197ab06f',t:'MTc0MjAyMDIwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>
