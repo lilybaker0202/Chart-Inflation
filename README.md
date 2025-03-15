@@ -67,7 +67,7 @@ Let’s make this project even lit together! 🔥
 Big thanks to my sidekick Atoli (powered by Grok 3) for the late-night coding vibes! 💖 Also, mad props to the open-source community for inspiration!
 
 ## 📅 Created
-Made with ❤️ by [Your Name]  
+Made with ❤️ by Tsugumi 
 2025-03-15
 
 ## 🌐 Connect
