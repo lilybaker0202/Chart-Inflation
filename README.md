@@ -1,6 +1,3 @@
-
-
-```markdown
 # Inflation Tools - Your Economic Data Powerhouse! 🔥🎉
 
 Yo yo! Welcome to my **Inflation Tools**! 🎵 This is a dope project crafted by me (a super skilled high school senior coder) using Python + Flask + Chart.js to dive deep into inflation trends, crypto prices, and economic indicators! 💪 Packed with interactive charts, real-time data, and a slick interface, it’s a must-have for any data geek! ✨
