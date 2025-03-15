@@ -1,1 +1,16 @@
-
+{% extends "base.html" %}
+{% block content %}
+<section class="intro-section">
+    <h1>Welcome to Inflation Tools</h1>
+    <p>A professional platform to explore inflation trends, currency values, and now crypto prices over time! Analyze, compare, and support us to keep this tool growing!</p>
+    <div class="button-group">
+        <a href="/chart_inflation" class="btn btn-primary">Explore Inflation</a>
+        <a href="/economic_index" class="btn btn-secondary">Economic Index</a>
+        <a href="/crypto_mode" class="btn btn-secondary">Crypto Mode</a>
+        <a href="/donation" class="btn btn-secondary">Support Us</a>
+    </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+{% endblock %}
